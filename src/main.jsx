@@ -15,18 +15,18 @@ import './assets/css/spacing.css';
 import './assets/css/style.css';
 
 // ✅ Import JavaScript files properly in Vite
-import './assets/js/jquery.js';
-import './assets/js/waypoints.js';
+// import './assets/js/jquery.js';
+// import './assets/js/waypoints.js';
 import './assets/js/bootstrap.bundle.min.js';
-import './assets/js/swiper-bundle.js';
-import './assets/js/slick.js';
-import './assets/js/magnific-popup.js';
-import './assets/js/counterup.js';
+// import './assets/js/swiper-bundle.js';
+// import './assets/js/slick.js';
+// import './assets/js/magnific-popup.js';
+// import './assets/js/counterup.js';
 // import './assets/js/wow.js';
-import './assets/js/meanmenu.js';
-import './assets/js/isotope-pkgd.js';
-import './assets/js/imagesloaded-pkgd.js';
-import './assets/js/ajax-form.js';
+// import './assets/js/meanmenu.js';
+// import './assets/js/isotope-pkgd.js';
+// import './assets/js/imagesloaded-pkgd.js';
+// import './assets/js/ajax-form.js';
 // import './assets/js/main.js';
 
 createRoot(document.getElementById('root')).render(
