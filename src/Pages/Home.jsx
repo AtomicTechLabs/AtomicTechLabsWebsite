@@ -3,7 +3,7 @@ import Logo from '../assets/img/logo/AtomicLogo.png';
 import BannerImage from '../assets/img/logo/BannerImage.png';
 import ShapeOne from '../assets/img/hero/shape-1.png';
 import ShapeTwo from '../assets/img/hero/shape-2.png';
-import Learning from '../assets/img/service/learning.png';
+import Learning from '../assets/img/service/Learning.png';
 import Industrial from '../assets/img/service/Industrail.png';
 import Corporate from '../assets/img/service/Corporate.png';
 import Iotproduct from '../assets/img/service/Iotproduct.png';
