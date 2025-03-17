@@ -970,12 +970,12 @@ const Home = () => {
                         
                         <div className="col-xl-6 col-lg-6 text-lg-end col-md-4  ">
                            <div className="tp-news-letter-img">
-                              <img src="assets/img/news/news-1.png" alt="" />
+                              {/* <img src="assets/img/news/news-1.png" alt="" /> */}
                            </div>
                         </div>
                      </div>
                      <div className="tp-news-shape-img">
-                        <img src="assets/img/news/news-shape-2.png" alt="" />
+                        {/* <img src="assets/img/news/news-shape-2.png" alt="" /> */}
                      </div>
                   </div>
                </div>
@@ -1053,7 +1053,9 @@ const Home = () => {
                         <div className="row align-items-center">
                            <div className="col-xl-4 col-lg-4 col-md-4 col-12">
                               <div className="tp-copyright-logo mt-35">
-                                 <a href="index.html"><img src="assets/img/copyright/copyright-logo.png" alt="" /></a>
+                                 {/* <a href="index.html">
+
+                                 </a> */}
                               </div>
                            </div>
                            <div className="col-xl-8 col-lg-8 col-md-8 col-12">
