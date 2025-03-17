@@ -12,6 +12,11 @@ import Research from '../assets/img/service/Research.png';
 import serviceOne from '../assets/img/service/service-1.png';
 import serviceTwo from '../assets/img/service/service-2.png';
 import serviceThree from '../assets/img/service/service-3.png';
+import bpchoseone from '../assets/img/chose/bp-chose-5.1.png';
+import choseoneTwo from '../assets/img/chose/bp-chose-5.2.png';
+import choseoneThree from '../assets/img/chose/bp-chose-5.3.png';
+import Feat from '../assets/img/feature/fea-2.png';
+import ServiceShape from '../assets/img/service/service-shape.png';
 
 const Home = () => {
    return (
@@ -22,7 +27,7 @@ const Home = () => {
                   <div className="row align-items-center">
                      <div className="col-xl-3 col-lg-3">
                         <div className="tp-logo">
-                           <a href="index.html"><img src={Logo} alt="" /></a>
+                           <a href="/"><img src={Logo} alt="" /></a>
                         </div>
                      </div>
                      {/* <div className="col-xl-7 col-lg-7">
@@ -101,7 +106,7 @@ const Home = () => {
                <div className="row align-items-center">
                   <div className="col-6">
                      <div className="tp-logo">
-                        <a href="#"><img src={Logo} alt="" /></a>
+                        <a href="/"><img src={Logo} alt="" /></a>
                      </div>
                   </div>
                   
@@ -112,12 +117,12 @@ const Home = () => {
          <div className="tp-offcanvas-area">
             <div className="tpoffcanvas">
                <div className="tpoffcanvas__logo">
-                  <a href="index.html">
+                  <a href="/">
                      <img src="assets/img/logo/logo-white.png" alt="" />
                   </a>
                </div>
                <div className="tpoffcanvas__close-btn">
-                  <a className="close-btn" href="javascript:void(0)"><i className="fal fa-times-hexagon"></i></a>
+                  <a className="close-btn" href="/"><i className="fal fa-times-hexagon"></i></a>
                </div>
                <div className="tpoffcanvas__content d-none d-sm-block">
                   <p>We deploy world-class Creative <br /> on demand.</p>
@@ -128,10 +133,10 @@ const Home = () => {
                <div className="tpoffcanvas__contact">
                   <span>Contact us</span>
                   <ul>
-                     <li><i className="fas fa-star"></i> <a href="https://goo.gl/maps/abHegV4AoiJA6Syd8" target="_blank">Melbone
+                     <li><i className="fas fa-star"></i> <a href="/" target="_blank">Melbone
                         st, Australia, Ny 12099</a></li>
-                     <li><i className="fas fa-star"></i> <a href="tel:8180012345678">+81 800 123 456 78</a></li>
-                     <li><i className="fas fa-star"></i> <a href="mailto:Collaxmail@gmail.com">Collaxmail@gmail.com</a></li>
+                     <li><i className="fas fa-star"></i> <a href="/">+81 800 123 456 78</a></li>
+                     <li><i className="fas fa-star"></i> <a href="/">Collaxmail@gmail.com</a></li>
                   </ul>
                </div>
                <div className="tpoffcanvas__input d-none d-sm-block">
@@ -145,10 +150,10 @@ const Home = () => {
                   <p>Check Instagram POst</p>
                   <div className="tp-insta">
                      <div className="row">
-                        <div className="col-3 col-sm-3"><a href="#"><img src="assets/img/offcanvas/insta-1.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="#"><img src="assets/img/offcanvas/insta-2.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="#"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="#"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
+                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-1.jpg" alt="" /></a></div>
+                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-2.jpg" alt="" /></a></div>
+                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
+                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
                      </div>
                   </div>
                </div>
@@ -212,12 +217,12 @@ const Home = () => {
                         <div className="row">
                            <div className="col-xl-6 col-lg-6 wow tpfadeLeft" data-wow-duration=".3s" data-wow-delay=".5s">
                               <div className="ac-about-left">
-                                 <h3 className="ac-ab-title"><a href="#">Innovating Through Education & Technology</a></h3>
+                                 <h3 className="ac-ab-title"><a href="/">Innovating Through Education & Technology</a></h3>
                               </div>
                            </div>
                            <div className="col-xl- col-lg-6 wow tpfadeRight" data-wow-duration=".5s" data-wow-delay=".7s">
                               <div className="ac-about-right">
-                              <h5 class="tp-subtitle">About Us</h5>
+                              <h5 className="tp-subtitle">About Us</h5>
                                  <p className="pb-25">Atomic Tech Labs provides hands-on training in Robotics, IoT, AI, and Embedded Systems for students, fostering future-ready skills for children's growth. We also specialize in innovative product development, solving real-world challenges with cutting-edge technology.</p>
                               </div>
                            </div>
@@ -361,16 +366,16 @@ const Home = () => {
             </div> */}
 
 
-            <div class="tp-service-area pt-55 pb-50">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-xl-12">
-                        <div class="tp-service-section-box text-center pb-35">
-                           <h5 class="tp-subtitle">Core Services</h5>
-                           <h2 class="tp-title">Innovate, Learn, and 
-                              <span class="tp-section-highlight ps-1">
+            <div className="tp-service-area pt-55 pb-50">
+               <div className="container">
+                  <div className="row">
+                     <div className="col-xl-12">
+                        <div className="tp-service-section-box text-center pb-35">
+                           <h5 className="tp-subtitle">Core Services</h5>
+                           <h2 className="tp-title">Innovate, Learn, and 
+                              <span className="tp-section-highlight ps-1">
                                Build the Future
-                                 <svg class="wow" width="290" height="11" viewBox="0 0 290 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <svg className="wow" width="290" height="11" viewBox="0 0 290 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 0L290 11H0V0Z" fill="#FFDC60" />
                                  </svg>
                               </span>
@@ -378,69 +383,69 @@ const Home = () => {
                         </div>
                      </div>
                   </div>
-                  <div class="row gx-17">
-                     <div class="col-xl-4 col-md-6">
-                        <div class="tp-services-item text-center service-color-1 mb-30  wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".3s">
-                           <div class="tp-services-item__icon mb-35">
+                  <div className="row gx-17">
+                     <div className="col-xl-4 col-md-6">
+                        <div className="tp-services-item text-center service-color-1 mb-30  wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".3s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={Learning} alt="" />
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">IoT Training & Certification </a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">IoT Training & Certification </a></h3>
                               <p>Advance your career with hands-on IoT courses in Embedded Systems, AI, and Automation. Ideal for students, engineers, and IT professionals.</p>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-md-6 " >
-                        <div class="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
-                           <div class="tp-services-item__icon mb-35">
+                     <div className="col-xl-4 col-md-6 " >
+                        <div className="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={Industrial} alt=""/>
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">Industrial IoT Solutions </a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">Industrial IoT Solutions </a></h3>
                               <p>Transform your business with smart IoT solutions for manufacturing, healthcare, and smart cities. Enhance efficiency, automation, and analytics.</p>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-md-6 " >
-                        <div class="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div class="tp-services-item__icon mb-35">
+                     <div className="col-xl-4 col-md-6 " >
+                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={Corporate} alt="" />
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">Corporate IoT Workshops</a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">Corporate IoT Workshops</a></h3>
                               <p> Upskill your team with expert-led IoT workshops covering Edge Computing, AIoT, and Cloud Integration for tech enterprises and startups.</p>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-md-6 " >
-                        <div class="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div class="tp-services-item__icon mb-35">
+                     <div className="col-xl-4 col-md-6 " >
+                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={Iotproduct} alt="" />
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">Custom IoT Product Development</a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">Custom IoT Product Development</a></h3>
                               <p> We design and develop IoT-enabled smart devices, automation systems, and AI-integrated platforms for enterprises, startups, and innovators.</p>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-md-6 " >
-                        <div class="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div class="tp-services-item__icon mb-35">
+                     <div className="col-xl-4 col-md-6 " >
+                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={STEAM} alt="" />
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">STEM & Academic IoT Programs –</a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">STEM & Academic IoT Programs –</a></h3>
                               <p>Future-proof education with IoT & Robotics training for universities, schools, and technical institutes, bridging the gap between theory and industry.</p>
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-md-6 " >
-                        <div class="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
-                           <div class="tp-services-item__icon mb-35">
+                     <div className="col-xl-4 col-md-6 " >
+                        <div className="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
+                           <div className="tp-services-item__icon mb-35">
                               <img src={Research} alt=""/>
                            </div>
-                           <div class="tp-services-item__content">
-                              <h3 class="tp-sv-title"><a href="service-details.html">IoT Research & Project Development</a></h3>
+                           <div className="tp-services-item__content">
+                              <h3 className="tp-sv-title"><a href="/">IoT Research & Project Development</a></h3>
                               <p>Advance research with hands-on IoT project guidance, prototyping, and industry collaboration for students, researchers, and universities, bridging academia and real-world innovation.</p>
                            </div>
                         </div>
@@ -451,7 +456,7 @@ const Home = () => {
 
             <div className="tp-service-area pt-60 pb-40 grey-bg p-relative fix">
                <div className="tp-sv-shape-img z-index-1">
-                  <img src="assets/img/service/service-shape.png" alt="" />
+                  <img src={ServiceShape} alt="" />
                </div>
                <div className="circle-animation service">
                   <span className="tp-circle-1"></span>
@@ -509,55 +514,55 @@ const Home = () => {
                      </div>
                   </div>
                </div>
-               <div class="tp-chose-area pt-10 pb-10 p-relative">
-         <div class="bp-chose-1 d-none d-lg-block">
-            <img src="assets/img/chose/bp-chose-5.1.png" alt=""/>
+               <div className="tp-chose-area pt-10 pb-10 p-relative">
+         <div className="bp-chose-1 d-none d-lg-block">
+            <img src={bpchoseone} alt=""/>
          </div>
-         <div class="bp-chose-2 d-none d-lg-block">
-            <img src="assets/img/chose/bp-chose-5.2.png" alt=""/>
+         <div className="bp-chose-2 d-none d-lg-block">
+            <img src={choseoneTwo} alt=""/>
          </div>
-         <div class="bp-chose-3 d-none d-lg-block">
-            <img src="assets/img/chose/bp-chose-5.3.png" alt=""/>
+         <div className="bp-chose-3 d-none d-lg-block">
+            <img src={choseoneThree} alt=""/>
          </div>
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 col-lg-7 col-md-12">
-                  <div class="tpchosebox-main p-relative">
-                     <div class="tp-chose-bg">
-                        <img src="assets/img/feature/fea-2.png" alt=""/>
+         <div className="container">
+            <div className="row">
+               <div className="col-xl-6 col-lg-7 col-md-12">
+                  <div className="tpchosebox-main p-relative">
+                     <div className="tp-chose-bg">
+                        <img src={Feat} alt=""/>
                      </div>
-                     <div class="row gx-40 align-items-center tp-chose-space">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12 wow tpfadeLeft"  data-wow-duration=".3s" data-wow-delay=".5s">
-                           <div class="tp-chose-item mb-40">
-                              <div class="tpchosebox">
-                                 <div class="tpchosebox__icon mb-30">
-                                    <a href="#"><i class="flaticon-group"></i></a>
+                     <div className="row gx-40 align-items-center tp-chose-space">
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-12 wow tpfadeLeft"  data-wow-duration=".3s" data-wow-delay=".5s">
+                           <div className="tp-chose-item mb-40">
+                              <div className="tpchosebox">
+                                 <div className="tpchosebox__icon mb-30">
+                                    <a href="/"><i className="flaticon-group"></i></a>
                                  </div>
-                                 <div class="tpchosebox__content">
-                                    <h4><a href="#">Professional <br/> Team</a></h4>
+                                 <div className="tpchosebox__content">
+                                    <h4><a href="/">Professional <br/> Team</a></h4>
                                     <p>10+ Team Member</p>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                           <div class="tp-chose-item">
-                              <div class="tpchosebox tpchosebox-two mb-40 wow tpfadeIn"  data-wow-duration=".5s" data-wow-delay=".7s">
-                                 <div class="tpchosebox__icon fea-color-4 mb-30">
-                                    <a href="#"><i class="flaticon-web"></i></a>
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-12">
+                           <div className="tp-chose-item">
+                              <div className="tpchosebox tpchosebox-two mb-40 wow tpfadeIn"  data-wow-duration=".5s" data-wow-delay=".7s">
+                                 <div className="tpchosebox__icon fea-color-4 mb-30">
+                                    <a href="/"><i className="flaticon-web"></i></a>
                                  </div>
-                                 <div class="tpchosebox__content">
-                                    <h4><a href="#">Cretified <br/>
+                                 <div className="tpchosebox__content">
+                                    <h4><a href="/">Cretified <br/>
                                        Experience</a></h4>
                                     <p>1k Reach</p>
                                  </div>
                               </div>
-                              <div class="tpchosebox tpchosebox-three wow tpfadeUp"  data-wow-duration=".5s" data-wow-delay=".7s">
-                                 <div class="tpchosebox__icon fea-color-5 mb-30">
-                                    <a href="#"><i class="fas fa-star"></i></a>
+                              <div className="tpchosebox tpchosebox-three wow tpfadeUp"  data-wow-duration=".5s" data-wow-delay=".7s">
+                                 <div className="tpchosebox__icon fea-color-5 mb-30">
+                                    <a href="/"><i className="fas fa-star"></i></a>
                                  </div>
-                                 <div class="tpchosebox__content">
-                                    <h4><a href="#">Competitive <br/>
+                                 <div className="tpchosebox__content">
+                                    <h4><a href="/">Competitive <br/>
                                        Rate</a></h4>
                                     <p>100% Client Satisfied</p>
                                  </div>
@@ -567,19 +572,19 @@ const Home = () => {
                      </div>
                   </div>
                </div>
-               <div class="col-xl-6 col-lg-5 col-md-10 col-12 wow tpfadeRight d-flex align-items-center"  data-wow-duration=".5s" data-wow-delay=".9s">
-                  <div class="tp-feature-section-title-box">
-                     {/* <h5 class="tp-subtitle pb-10">Why Choose us</h5> */}
-                     <h2 class="tp-title tp-title-sm">Transform 
-                        <span class="tp-section-highlight">
+               <div className="col-xl-6 col-lg-5 col-md-10 col-12 wow tpfadeRight d-flex align-items-center"  data-wow-duration=".5s" data-wow-delay=".9s">
+                  <div className="tp-feature-section-title-box">
+                     {/* <h5 className="tp-subtitle pb-10">Why Choose us</h5> */}
+                     <h2 className="tp-title tp-title-sm">Transform 
+                        <span className="tp-section-highlight">
                         Your Business
                            <svg width="247" height="12" viewBox="0 0 247 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M-0.000488281 0L247 12H-0.000488281V0Z" fill="#FFDC60"/>
                            </svg>
                         </span>
                         with Smart IoT Solutions</h2>
-                     <p class="pb-25">We help businesses harness the power of IoT, AI, and automation to improve efficiency, connectivity, and innovation. Our custom IoT solutions optimize operations, enabling smart manufacturing, industrial automation, and real-time data analytics.</p>
-                     <p class="pb-20">From design to deployment, we create scalable, future-ready IoT ecosystems that drive digital transformation.</p>
+                     <p className="pb-25">We help businesses harness the power of IoT, AI, and automation to improve efficiency, connectivity, and innovation. Our custom IoT solutions optimize operations, enabling smart manufacturing, industrial automation, and real-time data analytics.</p>
+                     <p className="pb-20">From design to deployment, we create scalable, future-ready IoT ecosystems that drive digital transformation.</p>
                     
                   </div>
                </div>
@@ -823,58 +828,58 @@ const Home = () => {
             </div> */}
 
 
-            <div class="sd-accordio-area pt-130 pb-130">
-         <div class="container">
-            <div class="row">
+            <div className="sd-accordio-area pt-130 pb-130">
+         <div className="container">
+            <div className="row">
                <h2 className="tp-title text-center">Frequently Asked Question </h2>
                <div className='row'>
-               <div class="col-xl-6">
-                  <div class="tp-custom-accordio faq-accordio-border">
-                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingOne">
-                              <button class="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+               <div className="col-xl-6">
+                  <div className="tp-custom-accordio faq-accordio-border">
+                     <div className="accordion" id="accordionExample">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingOne">
+                              <button className="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                               Who can join your training programs?
                               </button>
                            </h2>
-                           <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Our courses are designed for school students, college learners, and professionals.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingTwo">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingTwo">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                               Do you collaborate with schools for long-term programs?
                               </button>
                            </h2>
-                           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Yes, we provide year-long curriculum programs tailored for schools to integrate technology education effectively.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingThree">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingThree">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                               Do you manage Atal Tinkering Labs (ATL)?
                               </button>
                            </h2>
-                           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Yes, we set up, manage, and conduct hands-on training for ATL to foster innovation and STEM learning.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingfour">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingfour">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
                               Do you provide online training?
                               </button>
                            </h2>
-                           <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Yes, we offer both online and offline training sessions.
 
                               </div>
@@ -883,53 +888,53 @@ const Home = () => {
                      </div>
                   </div>
                </div>
-               <div class="col-xl-6">
-                  <div class="tp-custom-accordio faq-accordio-border">
-                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingfive">
-                              <button class="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
+               <div className="col-xl-6">
+                  <div className="tp-custom-accordio faq-accordio-border">
+                     <div className="accordion" id="accordionExample">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingfive">
+                              <button className="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
                               Can businesses collaborate with you for product development?
                               </button>
                            </h2>
-                           <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapsefive" className="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Absolutely! We develop custom IoT and AI solutions for startups and enterprises.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingsix">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingsix">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
                               Do you offer customized training programs for institutions?
                               </button>
                            </h2>
-                           <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapsesix" className="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               Yes, we design customized training modules for schools, colleges, and corporate teams.A dedicated product design team can help you achieve your business goals. Whether you need to craft an idea for a completely new product or elevate the quality of an existing solution, we’ll help you to create a product that is laser targeted to your users’ needs and delivers business results.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingseven">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingseven">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
                               What technologies do you specialize in ?
                               </button>
                            </h2>
-                           <div id="collapseseven" class="accordion-collapse collapse" aria-labelledby="headingseven" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapseseven" className="accordion-collapse collapse" aria-labelledby="headingseven" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               We focus on Robotics, IoT, AI, Embedded Systems, and STEM education.
                               </div>
                            </div>
                         </div>
-                        <div class="accordion-items">
-                           <h2 class="accordion-header" id="headingeight">
-                              <button class="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseight" aria-expanded="false" aria-controls="collapseight">
+                        <div className="accordion-items">
+                           <h2 className="accordion-header" id="headingeight">
+                              <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseight" aria-expanded="false" aria-controls="collapseight">
                               How can we partner with Atomic Tech Labs?
                               </button>
                            </h2>
-                           <div id="collapseight" class="accordion-collapse collapse" aria-labelledby="headingeight" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
+                           <div id="collapseight" className="accordion-collapse collapse" aria-labelledby="headingeight" data-bs-parent="#accordionExample">
+                              <div className="accordion-body">
                               You can collaborate for training programs, curriculum development, or product innovation. Contact us for more details.
                               </div>
                            </div>
@@ -1017,6 +1022,12 @@ const Home = () => {
                               <a className="tp-btn" href="contact.html">Available for new Project<i className="far fa-arrow-right"></i> </a>
                            </div>
                         </div>
+                     </div>
+                  </div>
+                  <div className="tp-footer-widget wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".5s">
+                     <div className="tp-copyright-text z-index-1">
+                        <p className="m-0">Contact Us : +91 9943690987 / 9443922588</p>
+                        <p className="m-0">Email: contact@atomictechlabs.com</p>
                      </div>
                   </div>
                </div>
