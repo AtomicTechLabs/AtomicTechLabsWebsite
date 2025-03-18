@@ -238,7 +238,7 @@ const Home = () => {
                                  <p className="wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".8s"> Adopting Technology and Optimizing Minds for Ideas and Creation</p>
                                  <div className="tp-hero-button mb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
                                     <a className="tp-btn mr-30" href="#lettalk">Let’s Talk</a>
-                                    <a className="tp-btn-grey" href="#aboutme">About Collax <i className="far fa-arrow-right"></i></a>
+                                    <a className="tp-btn-grey" href="#aboutme">About Us <i className="far fa-arrow-right"></i></a>
                                  </div>
                                  {/* <div className="tp-hero-social pb-30 wow tpfadeIn" data-wow-duration=".7s" data-wow-delay="1.2s">
                                     <div className="tp-hero-social bp-hero-social">
@@ -283,6 +283,7 @@ const Home = () => {
                               <div className="ac-about-right">
                                  <h5 className="tp-subtitle">About Us</h5>
                                  <p className="pb-25">Atomic Tech Labs provides hands-on training in Robotics, IoT, AI, and Embedded Systems for students, fostering future-ready skills for children's growth. We also specialize in innovative product development, solving real-world challenges with cutting-edge technology.</p>
+                                 <a className="tp-btn mr-30" href="#lettalk">Let’s Talk</a>
                               </div>
                            </div>
                         </div>
@@ -667,8 +668,9 @@ const Home = () => {
                                     </svg>
                                  </span>
                                  Smart IoT & AI Education</h2>
-                              <p className="pb-25 text-white">We equip students, educators, and professionals with IoT, AI, and robotics training to enhance technical skills and innovation. Our hands-on programs cover embedded systems, automation, and real-time data analytics, preparing learners for STEM careers and Industry 4.0.</p>
-                              <p className="pb-20 text-white">From fundamentals to advanced applications, we provide scalable, future-ready learning solutions for schools, universities, and enterprises.</p>
+                              <p className="pb-25 text-white">Foundation in electronic & circuits, block-based programming, and basic robotic movements.</p>
+                              <p className="pb-20 text-white">Advanced level covering sensor-based automation, IoT concepts, and logic-building through coding.</p>
+                              <p className="pb-20 text-white">Advanced integration of IoT, AI-enabled Robots, and capstone projects to solve real-world problems.</p>
                            </div>
                         </div>
                      </div>
@@ -1160,7 +1162,7 @@ const Home = () => {
                         </div>
                         <div className="col-xl-5 col-lg-5 col-md-5 col-12">
                            <div className="tp-footer-button text-start text-md-end">
-                              <a className="tp-btn" href="contact.html">Available for new Project<i className="far fa-arrow-right"></i> </a>
+                              <a className="tp-btn" href="#lettalk">Available for new Project<i className="far fa-arrow-right"></i> </a>
                            </div>
                         </div>
                      </div>
@@ -1185,7 +1187,7 @@ const Home = () => {
                               <div className="tp-copyright-right text-md-end text-start">
                                  <a href="/">Support</a>
                                  <a href="/">Privacy policy</a>
-                                 <a href="/">Tterms and conditions</a>
+                                 <a href="/">Terms and conditions</a>
                               </div>
                            </div>
                         </div>
