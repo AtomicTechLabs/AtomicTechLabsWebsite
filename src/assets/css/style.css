@@ -74,7 +74,9 @@
   --tp-border-1: #E8ECF2;
   --tp-border-2: #4E4E59;
 }
-
+.bg-green{
+  background-color: #56a22e;
+}
 * {
   margin: 0;
   padding: 0;
@@ -2494,7 +2496,8 @@ input[type=color] {
 
 .faq-accordio-border .accordion-items {
   background-color: var(--tp-common-white);
-  border: 1px solid #F5F5F5;
+  /* border: 1px solid #F5F5F5; */
+  border: 1px solid #3C4048;
   border-radius: 10px;
 }
 
@@ -2568,7 +2571,7 @@ input[type=color] {
     font-size: 35px;
   }
   .text-sm{
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -2576,7 +2579,9 @@ input[type=color] {
     font-size: 35px;
   }
 }
-
+.text-sm{
+  font-size: 14px;
+}
 .tp-title-sm {
   font-size: 50px;
   letter-spacing: 0;
@@ -3820,7 +3825,7 @@ input[type=color] {
 
 .tp-hero-text p {
   line-height: 30px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   padding-bottom: 40px;
 }
@@ -6657,7 +6662,12 @@ input[type=color] {
 }
 @media (max-width: 767px) {
   .tp-chose-bg img {
-    max-width: 100%;
+    /* max-width: 100%; */
+    display: none;
+  }
+  .tp-sv-shape-img img {
+    /* max-width: 100%; */
+    display: none;
   }
 }
 
