@@ -637,7 +637,7 @@ const Home = () => {
                                              <a href="/"><i className="flaticon-web"></i></a>
                                           </div>
                                           <div className="tpchosebox__content">
-                                             <h4><a href="/">Cretified <br />
+                                             <h4><a href="/">Certified <br />
                                                 Experience</a></h4>
                                              <p>1k Reach</p>
                                           </div>
