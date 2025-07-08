@@ -1121,7 +1121,7 @@ const Home = () => {
                            value={formData.message}
                            onChange={handleChange}
                            required
-                           placeholder="Enter your Massage"></textarea>
+                           placeholder="Enter your Message"></textarea>
                         </form>
                         <button type="button" onClick={sendEmail} className="tp-btn">Send Massage</button>
                      </div>
