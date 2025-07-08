@@ -1123,7 +1123,7 @@ const Home = () => {
                            required
                            placeholder="Enter your Message"></textarea>
                         </form>
-                        <button type="button" onClick={sendEmail} className="tp-btn">Send Massage</button>
+                        <button type="button" onClick={sendEmail} className="tp-btn">Send Message</button>
                      </div>
                      <p className="ajax-response"></p>
                   </div>
@@ -1170,7 +1170,7 @@ const Home = () => {
                   <div className="tp-footer-widget wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".5s">
                      <div className="tp-copyright-text z-index-1">
                         <p className="m-0">Contact Us : +91 9943690987 / 9443922588</p>
-                        <p className="m-0">Email: contact@atomictechlabs.com</p>
+                        <p className="m-0">Email: contact@atomictechlabs.in</p>
                      </div>
                   </div>
                </div>
