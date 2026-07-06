@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.atomictechlabs.in/sitemap.xml
+
+# Crawl-delay for well-behaved bots
+Crawl-delay: 1
+
+# Disallow admin/dev paths
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /node_modules/
