@@ -7,14 +7,14 @@ import Cursor from './components/ui/Cursor'
 import Loader from './components/ui/Loader'
 import PageTransition from './components/ui/PageTransition'
 
-const Home     = lazy(() => import('./pages/Home'))
-const About    = lazy(() => import('./pages/About'))
-const Services = lazy(() => import('./pages/Services'))
-const Gallery  = lazy(() => import('./pages/Gallery'))
-const Blog     = lazy(() => import('./pages/Blog'))
-const BlogPost = lazy(() => import('./pages/BlogPost'))
-const Contact  = lazy(() => import('./pages/Contact'))
-const NotFound = lazy(() => import('./pages/NotFound'))
+const Home     = lazy(() => import('./Pages/Home'))
+const About    = lazy(() => import('./Pages/About'))
+const Services = lazy(() => import('./Pages/Services'))
+const Gallery  = lazy(() => import('./Pages/Gallery'))
+const Blog     = lazy(() => import('./Pages/Blog'))
+const BlogPost = lazy(() => import('./Pages/BlogPost'))
+const Contact  = lazy(() => import('./Pages/Contact'))
+const NotFound = lazy(() => import('./Pages/NotFound'))
 
 function ScrollReset() {
   const { pathname } = useLocation()
