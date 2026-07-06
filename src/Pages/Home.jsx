@@ -1,1226 +1,296 @@
-import React, { useState } from 'react'
-import Logo from '../assets/img/logo/AtomicLogo.png';
-import BannerImage from '../assets/img/logo/BannerImage.png';
-import ShapeOne from '../assets/img/hero/shape-1.png';
-import ShapeTwo from '../assets/img/hero/shape-2.png';
-import Learning from '../assets/img/service/Learning.png';
-import Industrial from '../assets/img/service/Industrail.png';
-import Corporate from '../assets/img/service/Corporate.png';
-import Iotproduct from '../assets/img/service/Iotproduct.png';
-import STEAM from '../assets/img/service/STEAM.png';
-import Research from '../assets/img/service/Research.png';
-import serviceOne from '../assets/img/service/service-1.png';
-import serviceTwo from '../assets/img/service/service-2.png';
-import serviceThree from '../assets/img/service/service-3.png';
-import bpchoseone from '../assets/img/chose/bp-chose-5.1.png';
-import choseoneTwo from '../assets/img/chose/bp-chose-5.2.png';
-import choseoneThree from '../assets/img/chose/bp-chose-5.3.png';
-import Feat from '../assets/img/feature/fea-2.png';
-import ServiceShape from '../assets/img/service/service-shape.png';
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import HeroScene from '../components/canvas/HeroScene'
+import ConveyorScene from '../components/canvas/ConveyorScene'
+import GlobeScene from '../components/canvas/GlobeScene'
+import AntigravityCanvas from '../components/ui/AntigravityCanvas'
+import {
+  IconRobot, IconGraduate, IconBuilding, IconWifi,
+  IconChip, IconBrain, IconCheck, IconArrow, IconStar
+} from '../components/ui/Icons'
 
-
-const Home = () => {
-
-   const form = useRef();
-
- const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => {
-      const updatedData = { ...prevData, [name]: value };
-      console.log("Updated formData:", updatedData); // ✅ Logs updated values
-      return updatedData;
-    });
-  };
-
-  const sendEmail = (e) => {
-   console.log("click");
-   
-   e.preventDefault();
-   console.log("form",formData);
-   
-   // Validate all fields before submission
-   if (!formData.name || !formData.email || !formData.phone || !formData.message) {
-     alert("Please fill in all fields before submitting.");
-     return;
-   }
-
-   emailjs
-     .sendForm("service_1ks8mf9", "template_1gn2e7i", form.current, {
-       publicKey: "LkNPrzYcAJHG6RrWS",
-     })
-     .then(
-       () => {
-         alert("Thanks For Your Message. Our Team contact you soon.");
-         setFormData({
-           name: "",
-           email: "",
-           phone: "",
-           message: "",
-         });
-       },
-       (error) => {
-         alert("Failed to send message, please try again.");
-         console.log("FAILED...", error.text);
-       }
-     );
- };
-
-
-
-
-
-   return (
-      <div>
-         <header className="d-none d-lg-block">
-            <div id="header-sticky" className="tp-header-area header-transparent pl-165 pr-165 pt-35">
-               <div className="container-fluid">
-                  <div className="row align-items-center">
-                     <div className="col-xl-3 col-lg-3">
-                        <div className="tp-logo">
-                           <a href="/"><img src={Logo} alt="" /></a>
-                        </div>
-                     </div>
-                     {/* <div className="col-xl-7 col-lg-7">
-                        <div className="tp-main-menu">
-                           <nav id="mobile-menu">
-                              <ul>
-                                 <li className="has-dropdown"><a href="index.html">Home</a>
-                                    <ul className="submenu text-start">
-                                       <li><a href="index.html">Creative Agency</a></li>
-                                       <li><a href="index-2.html">Personal Portfolio</a></li>
-                                       <li><a href="index-3.html">Startup Business</a></li>
-                                       <li><a href="index-4.html">Digital Agency</a></li>
-                                       <li><a href="index-5.html">Business Advisor</a></li>
-                                       <li><a href="index-6.html">IT Service Agency</a></li>
-                                       <li><a href="index-7.html">Corporate Agency</a></li>
-                                       <li><a href="index-8.html">Fashion Blog 01</a></li>
-                                       <li><a href="index-9.html">Fashion Blog 02</a></li>
-                                    </ul>
-                                 </li>
-                                 <li className="has-dropdown "><a href="portfolio.html">Portfolio</a>
-                                    <ul className="submenu text-start">
-                                       <li><a href="portfolio.html">Portfolio Full Width</a></li>
-                                       <li><a href="portfolio-2.html">Portfolio Filter 01</a></li>
-                                       <li><a href="portfolio-3.html">Portfolio Filter 02</a></li>
-                                       <li><a href="portfolio-mesonary.html">Portfolio Masonry</a></li>
-                                       <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                    </ul>
-                                 </li>
-                                 <li className="has-dropdown has-mega-menu"><a href="#">Pages</a>
-                                    <ul className="submenu text-start">
-                                       <li><a href="about.html">About</a></li>
-                                       <li><a href="about-me.html">About Me</a></li>
-                                       <li><a href="job.html">Job</a></li>
-                                       <li><a href="job-details.html">Job Details</a></li>
-                                       <li><a href="product.html">Product</a></li>
-                                       <li><a href="product-details.html">Product Details</a></li>
-                                       <li><a href="service-1.html">Service 01</a></li>
-                                       <li><a href="service-2.html">Service 02</a></li>
-                                       <li><a href="service-3.html">Service 03</a></li>
-                                       <li><a href="service-4.html">Service 04</a></li>
-                                       <li><a href="service-details.html">Service Details</a></li>
-                                       <li><a href="testimonial.html">Testimonial</a></li>
-                                       <li><a href="price.html">Price</a></li>
-                                       <li><a href="faq.html">Faq</a></li>
-                                       <li><a href="login.html">Login</a></li>
-                                       <li><a href="registration.html">Register</a></li>
-                                       <li><a href="404.html">404</a></li>
-                                    </ul>
-                                 </li>
-                                 <li className="has-dropdown "><a href="blog.html">Blog</a>
-                                    <ul className="submenu text-start">
-                                       <li><a href="blog.html">Blog Sidebar</a></li>
-                                       <li><a href="blog-details.html">Blog Details</a></li>
-                                       <li><a href="blog-grid-1.html">Post Style 01</a></li>
-                                       <li><a href="blog-grid-2.html">Post Style 02</a></li>
-                                       <li><a href="blog-grid-3.html">Post Style 03</a></li>
-                                    </ul>
-                                 </li>
-                                 <li><a href="contact.html">Contact</a></li>
-                              </ul>
-                           </nav>
-                        </div>
-                     </div>
-                     <div className="col-xl-2 col-lg-2">
-                        <div className="tp-menu-bar text-end">
-                           <button><i className="fal fa-bars"></i></button>
-                        </div>
-                     </div> */}
-                  </div>
-               </div>
-            </div>
-         </header>
-
-         <div id="header-sticky-mobile" className="tp-md-menu header-transparent d-lg-none pt-40 pb-40">
-            <div className="container-fluid">
-               <div className="row align-items-center">
-                  <div className="col-6">
-                     <div className="tp-logo">
-                        <a href="/"><img src={Logo} alt="" /></a>
-                     </div>
-                  </div>
-
-               </div>
-            </div>
-         </div>
-
-         <div className="tp-offcanvas-area">
-            <div className="tpoffcanvas">
-               <div className="tpoffcanvas__logo">
-                  <a href="/">
-                     <img src="assets/img/logo/logo-white.png" alt="" />
-                  </a>
-               </div>
-               <div className="tpoffcanvas__close-btn">
-                  <a className="close-btn" href="/"><i className="fal fa-times-hexagon"></i></a>
-               </div>
-               <div className="tpoffcanvas__content d-none d-sm-block">
-                  <p>We deploy world-class Creative <br /> on demand.</p>
-               </div>
-               <div className="mobile-menu">
-
-               </div>
-               <div className="tpoffcanvas__contact">
-                  <span>Contact us</span>
-                  <ul>
-                     <li><i className="fas fa-star"></i> <a href="/" target="_blank">Melbone
-                        st, Australia, Ny 12099</a></li>
-                     <li><i className="fas fa-star"></i> <a href="/">+81 800 123 456 78</a></li>
-                     <li><i className="fas fa-star"></i> <a href="/">Collaxmail@gmail.com</a></li>
-                  </ul>
-               </div>
-               <div className="tpoffcanvas__input d-none d-sm-block">
-                  <p>Get UPdate</p>
-                  <form className="p-relative" action="#">
-                     <input type="text" placeholder="Enter mail" />
-                     <button type="submit"><i className="fas fa-paper-plane"></i></button>
-                  </form>
-               </div>
-               <div className="tpoffcanvas__instagram d-none d-sm-block">
-                  <p>Check Instagram POst</p>
-                  <div className="tp-insta">
-                     <div className="row">
-                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-1.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-2.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
-                        <div className="col-3 col-sm-3"><a href="/"><img src="assets/img/offcanvas/insta-4.jpg" alt="" /></a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <div className="body-overlay"></div>
-
-         <main>
-            <div className="tp-hero-area tp-hero-space p-relative z-index-1 fix">
-               <div className="tp-hero-shape">
-                  <div className="shape-circle-yellow d-none"></div>
-                  <div className="shape-circle-blue"></div>
-                  <div className="shape-one"><img src={ShapeOne} alt="" /></div>
-               </div>
-               <div className="tp-hero-wapper">
-                  <div className="container">
-                     <div className="row align-items-center">
-                        <div className="col-xl-7 col-lg-7">
-                           <div className="tp-hero-content">
-                              <div className="tp-hero-text">
-                                 <h2 className="tp-hero-title wow tpfadeUp" data-wow-duration=".3s" data-wow-delay=".6s">Redefining Learning Through Robotics, IoT & AI</h2>
-                                 <p className="wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".8s"> Adopting Technology and Optimizing Minds for Ideas and Creation</p>
-                                 <div className="tp-hero-button mb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
-                                    <a className="tp-btn mr-30" href="#lettalk">Let’s Talk</a>
-                                    <a className="tp-btn-grey" href="#aboutme">About Us <i className="far fa-arrow-right"></i></a>
-                                 </div>
-                                 {/* <div className="tp-hero-social pb-30 wow tpfadeIn" data-wow-duration=".7s" data-wow-delay="1.2s">
-                                    <div className="tp-hero-social bp-hero-social">
-                                       <a className="social-icon-1" href="#">
-                                          <i className="fab fa-facebook-f social-icon-1"></i><span>Facebook</span>
-                                       </a>
-                                       <a className="social-icon-3" href="#"><i
-                                          className="fab fa-youtube social-icon-3"></i><span>youtube</span></a>
-                                       <a className="social-icon-2" href="#"><i
-                                          className="fab fa-twitter social-icon-2"></i><span>twitter</span></a>
-                                       <a className="social-icon-4" href="#"><i
-                                          className="fab fa-behance social-icon-4"></i><span>behance</span></a>
-                                    </div>
-                                 </div> */}
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-xl-5 col-lg-5">
-                           <div className="tp-hero-big-img wow fadeInRight" data-wow-duration=".7s" data-wow-delay="1.2s">
-                              <img src={BannerImage} alt="" />
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <div className="p-relative pt-10" id='aboutme'> 
-               <div className="shape-two z-index-1">
-                  <img src={ShapeTwo} alt="" />
-               </div>
-               <div className="ac-about-content-area pt-100">
-                  <div className="container">
-                     <div className="">
-                        <div className="row">
-                           <div className="col-xl-6 col-lg-6 wow tpfadeLeft" data-wow-duration=".3s" data-wow-delay=".5s">
-                              <div className="ac-about-left">
-                                 <h3 className="ac-ab-title"><a href="/">Innovating Through Education & Technology</a></h3>
-                              </div>
-                           </div>
-                           <div className="col-xl- col-lg-6 wow tpfadeRight" data-wow-duration=".5s" data-wow-delay=".7s">
-                              <div className="ac-about-right">
-                                 <h5 className="tp-subtitle">About Us</h5>
-                                 <p className="pb-25">Atomic Tech Labs provides hands-on training in Robotics, IoT, AI, and Embedded Systems for students, fostering future-ready skills for children's growth. We also specialize in innovative product development, solving real-world challenges with cutting-edge technology.</p>
-                                 <a className="tp-btn mr-30" href="#lettalk">Let’s Talk</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
- <div className="tp-news-letter-area pb-80 pt-80 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay=".4s">
-               <div className="container">
-                  <div className="tp-news-letter-box p-relative" data-background="assets/img/news/news-shape.png">
-                     <div className="row">
-                        <div className="col-xl-10 col-lg-6 col-md-8 col-12  ">
-                           <div className="tp-news-wrapper pl-90 z-index-1">
-                              <div className="tp-news-letter-section-box">
-                                 <h2 className="tp-title tp-white-text mb-2">Get latest updates and deals</h2>
-                                 <h5 className="subtitle-secondary-color text-start text-sm">Stay informed about cutting-edge IoT solutions, AI automation trends, and smart technology innovations. Subscribe now for exclusive insights, industry news, and special offers on IoT training & solutions!</h5>
-                              </div>
-                              
-                           </div>
-                        </div>
-
-                        <div className="col-xl-6 col-lg-6 text-lg-end col-md-4  ">
-                           <div className="tp-news-letter-img">
-                           </div>
-                        </div>
-                     </div>
-                     <div className="tp-news-shape-img">
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            {/* <div className="p-relative">
-               <div className="shape-two z-index-1">
-                  <img src="assets/img/hero/shape-2.png" alt="" />
-               </div>
-               <div className="tp-creative-area p-relative black-bg pt-140 pb-135 fix">
-                  <div className="circle-animation testimonial">
-                     <span className="tp-circle-1"></span>
-                     <span className="tp-circle-2"></span>
-                  </div>
-                  <div className="creative-shape-img">
-                     <img src="assets/img/creative/creative-hand.png" alt="" />
-                  </div>
-                  <div className="creative-shape-img-2">
-                     <img src="assets/img/creative/creative-circle-img.png" alt="" />
-                  </div>
-                  <div className="container creative-z-index ">
-                     <div className="row">
-                        <div className="col-lg-12">
-                           <div className="tp-creative-box text-center">
-                              <div className="tp-creative-content mb-110">
-                                 <h4 className="tp-creative-title">We deploy world-class <b>Creative Design team</b> on demand.
-                                    that can design, build, ship and
-                                    scale your vision in the most efficient way.</h4>
-                              </div>
-                              <div className="tp-play-button mb-150">
-                                 <a className="popup-video" href="https://www.youtube.com/watch?v=PO_fBTkoznc"><i
-                                    className="fal fa-play"></i></a>
-                                 <span>Play Take a look behind the scenes</span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="creative-box pl-40 pr-40">
-                        <div className="row gx-5">
-                           <div className="col-lg-4 col-md-12 col-xs-12 mb-30">
-                              <div className="tp-creative-item wow tpfadeUp" data-wow-duration=".3s" data-wow-delay=".6s">
-                                 <div className="tp-creative-yellow d-flex align-items-center">
-                                    <div className="tp-creative-icon mr-35">
-                                       <i className="flaticon-satisfaction"></i>
-                                    </div>
-                                    <div className="counter-text">
-                                       <span>100%</span>
-                                       <p className="m-0">Client Setisfaction</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="col-lg-4 col-md-12 col-xs-12 mb-30">
-                              <div className="tp-creative-item tp-creative-blue wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".8s">
-                                 <div className="tp-creative-yellow d-flex align-items-center">
-                                    <div className="tp-creative-icon mr-35">
-                                       <i className="flaticon-clipboard"></i>
-                                    </div>
-                                    <div className="counter-text">
-                                       <span>1200+</span>
-                                       <p className="m-0">Complete Project</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="col-lg-4 col-md-12 col-xs-12 mb-30">
-                              <div className="tp-creative-item tp-creative-pink wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
-                                 <div className="tp-creative-yellow d-flex align-items-center">
-                                    <div className="tp-creative-icon mr-35">
-                                       <i className="flaticon-setting"></i>
-                                    </div>
-                                    <div className="counter-text">
-                                       <span>1800+</span>
-                                       <p className="m-0">Design Resource</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div> */}
-            {/* 
-            <div className="tp-brand-area pt-135 grey-bg">
-               <div className="container">
-                  <div className="row">
-                     <div className="col-12">
-                        <div className="tp-brand-section text-center pb-60">
-                           <h4 className="tp-brand-title">We are Already Build Solution for...</h4>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="tp-brand-slider-section">
-                     <div className="swiper-container brand-slider-active">
-                        <div className="swiper-wrapper d-flex align-items-center">
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-1.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-2.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-3.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-4.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-5.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-6.png" alt="" />
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-brand-icon text-center">
-                                 <img src="assets/img/brand/brand-6.png" alt="" />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div> */}
-
-
-            <div className="tp-service-area pt-55 pb-50">
-               <div className="container">
-                  <div className="row">
-                     <div className="col-xl-12">
-                        <div className="tp-service-section-box text-center pb-35">
-                           <h5 className="tp-subtitle">Core Services</h5>
-                           <h2 className="tp-title">Innovate, Learn, and
-                              <span className="tp-section-highlight ps-1">
-                                 Build the Future
-                                 <svg className="wow" width="290" height="11" viewBox="0 0 290 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0L290 11H0V0Z" fill="#FFDC60" />
-                                 </svg>
-                              </span>
-                           </h2>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="row gx-17">
-                     <div className="col-xl-4 col-md-6">
-                        <div className="tp-services-item text-center service-color-1 mb-30  wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".3s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={Learning} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/">IoT Training & Certification </a></h3>
-                              <p>Advance your career with hands-on IoT courses in Embedded Systems, AI, and Automation. Ideal for students, engineers, and IT professionals.</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-xl-4 col-md-6 " >
-                        <div className="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={Industrial} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/">Robotics & Electronics Training </a></h3>
-                              <p>Learn robotics, electronics with hands-on training in embedded systems, circuit design for students, engineers, and techies.</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-xl-4 col-md-6 " >
-                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={STEAM} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/">STEM Programs for Future Innovators</a></h3>
-                              <p>Engaging STEM programs in robotics, coding, and electronics for students and educators to develop hands-on tech skills.</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-xl-4 col-md-6 " >
-                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={Corporate} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/">Faculty Development Programs</a></h3>
-                              <p>Enhance teaching skills with faculty development programs in IoT, AI, and robotics, designed for educators and institutions.</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-xl-4 col-md-6 " >
-                        <div className="tp-services-item text-center service-color-3 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".7s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={Iotproduct} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/"> IoT Product Development</a></h3>
-                              <p> We design and develop IoT-enabled smart devices, automation systems, and AI-integrated platforms for enterprises, startups, and innovators.</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-xl-4 col-md-6 " >
-                        <div className="tp-services-item text-center service-color-2 mb-30 wow tpfadeUp" data-wow-duration="1s" data-wow-delay=".5s">
-                           <div className="tp-services-item__icon mb-35">
-                              <img src={Research} alt="" />
-                           </div>
-                           <div className="tp-services-item__content">
-                              <h3 className="tp-sv-title"><a href="/">AI & IoT Research for Innovation</a></h3>
-                              <p>Advance in AI & IoT research with hands-on projects in smart automation, edge computing, and embedded systems for real-world impact.</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-            <div className="tp-service-area pt-60 pb-40 grey-bg p-relative fix">
-               <div className="tp-sv-shape-img z-index-1">
-                  <img src={ServiceShape} alt="" />
-               </div>
-               <div className="circle-animation service">
-                  <span className="tp-circle-1"></span>
-                  <span className="tp-circle-2"></span>
-               </div>
-               <div className="circle-animation service-two">
-                  <span className="tp-circle-skye"></span>
-               </div>
-               <div className="container">
-                  <div className="row">
-                     <div className="col-lg-6 col-md-12 col-12">
-                        <div className="tp-service-section-box mb-30 wow tpfadeUp" data-wow-duration=".3s" data-wow-delay=".6s">
-                           <h5 className="tp-subtitle pb-10">Why Choose Us?</h5>
-                           <h2 className="tp-title">Experts in every aspect lifecycle </h2>
-                        </div>
-                     </div>
-                     <div className="col-lg-6 col-md-12 col-12">
-                        <div className="tp-sv-box  wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".8s">
-                           <div className="tp-service-item d-flex mb-30">
-                              <div className="tp-sv-img">
-                                 <img src={serviceOne} alt="" />
-                              </div>
-                              <div className="tp-sv-content pl-60">
-                                 <h3 className=" tp-sv-title mb-35"><a href="service-details.html">Expert Trainers with Hands on Training</a></h3>
-                                 <p className="mb-30">Learn from industry professionals with real-world IoT, AI, and robotics experience, ensuring hands-on, practical learning.</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-lg-6 col-md-12 col-12">
-                        <div className="tp-sv-box wow tpfadeUp" data-wow-duration=".7s" data-wow-delay="1s">
-                           <div className="tp-service-item d-flex mb-30">
-                              <div className="tp-sv-img">
-                                 <img src={serviceTwo} alt="" />
-                              </div>
-                              <div className="tp-sv-content pl-60">
-                                 <h3 className="tp-sv-title mb-35"><a href="service-details.html">Customized IoT & AI Solutions</a></h3>
-                                 <p className="mb-30">We develop tailored IoT solutions for businesses, startups, and educational institutions, enabling smart automation and innovation.</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="col-lg-6 col-md-12 col-12">
-                        <div className="tp-sv-box wow tpfadeUp" data-wow-duration=".9s" data-wow-delay="1.2s">
-                           <div className="tp-service-item d-flex mb-30">
-                              <div className="tp-sv-img">
-                                 <img src={serviceThree} alt="" />
-                              </div>
-                              <div className="tp-sv-content pl-60">
-                                 <h3 className=" tp-sv-title mb-35"><a href="service-details.html">Industry-Aligned Curriculum</a></h3>
-                                 <p className="mb-30">Our Curriculum focus on Problem solving, Creativity, Smart Thinking and preparing students, professionals for futuristic careers.</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div className="tp-chose-area pt-40 pb-10 p-relative bg-green">
-                  <div className="bp-chose-1 d-none d-lg-block">
-                     <img src={bpchoseone} alt="" />
-                  </div>
-                  <div className="bp-chose-2 d-none d-lg-block">
-                     <img src={choseoneTwo} alt="" />
-                  </div>
-                  <div className="bp-chose-3 d-none d-lg-block">
-                     <img src={choseoneThree} alt="" />
-                  </div>
-                  <div className="container">
-                     <div className="row">
-                        <div className="col-xl-6 col-lg-7 col-md-12">
-                           <div className="tpchosebox-main p-relative">
-                              <div className="tp-chose-bg">
-                                 <img src={Feat} alt="" />
-                              </div>
-                              <div className="row gx-40 align-items-center tp-chose-space">
-                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12 wow tpfadeLeft" data-wow-duration=".3s" data-wow-delay=".5s">
-                                    <div className="tp-chose-item mb-40">
-                                       <div className="tpchosebox">
-                                          <div className="tpchosebox__icon mb-30">
-                                             <a href="/"><i className="flaticon-group"></i></a>
-                                          </div>
-                                          <div className="tpchosebox__content">
-                                             <h4><a href="/">Professional <br /> Team</a></h4>
-                                             <p>10+ Team Member</p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12">
-                                    <div className="tp-chose-item">
-                                       <div className="tpchosebox tpchosebox-two mb-40 wow tpfadeIn" data-wow-duration=".5s" data-wow-delay=".7s">
-                                          <div className="tpchosebox__icon fea-color-4 mb-30">
-                                             <a href="/"><i className="flaticon-web"></i></a>
-                                          </div>
-                                          <div className="tpchosebox__content">
-                                             <h4><a href="/">Certified <br />
-                                                Experience</a></h4>
-                                             <p>1k Reach</p>
-                                          </div>
-                                       </div>
-                                       <div className="tpchosebox tpchosebox-three wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".7s">
-                                          <div className="tpchosebox__icon fea-color-5 mb-30">
-                                             <a href="/"><i className="fas fa-star"></i></a>
-                                          </div>
-                                          <div className="tpchosebox__content">
-                                             <h4><a href="/">Competitive <br />
-                                                Rate</a></h4>
-                                             <p>100% Client Satisfied</p>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-xl-6 col-lg-5 col-md-10 col-12 wow tpfadeRight d-flex align-items-center" data-wow-duration=".5s" data-wow-delay=".9s">
-                           <div className="tp-feature-section-title-box">
-                              {/* <h5 className="tp-subtitle pb-10">Why Choose us</h5> */}
-                              <h2 className="tp-title tp-title-sm text-white">Empower 
-                                 <span className="tp-section-highlight">
-                                 Learning with
-                                    <svg width="247" height="12" viewBox="0 0 247 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                       <path d="M-0.000488281 0L247 12H-0.000488281V0Z" fill="#FFDC60" />
-                                    </svg>
-                                 </span>
-                                 Smart IoT & AI Education</h2>
-                              <p className="pb-25 text-white">Foundation in electronic & circuits, block-based programming, and basic robotic movements.</p>
-                              <p className="pb-20 text-white">Advanced level covering sensor-based automation, IoT concepts, and logic-building through coding.</p>
-                              <p className="pb-20 text-white">Advanced integration of IoT, AI-enabled Robots, and capstone projects to solve real-world problems.</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
-
-            {/* <div className="tp-testimonial-area black-bg pt-130 pb-130 fix">
-               <div className="container-fluid">
-                  <div className="row">
-                     <div className="col-xl-12">
-                        <div className="tp-testimonial-section-box text-center pb-25">
-                           <h5 className="tp-subtitle">Client Testimonial</h5>
-                           <h2 className="tp-title tp-white-text">Customer feedback</h2>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="tp-testimonial-slider-section d-flex justify-content-center mb-50">
-                     <div className="swiper-container testimonial-slider-active">
-                        <div className="swiper-wrapper">
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className="tp-testi-img mr-20"><img src="assets/img/testimonial/testi-1.png" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Darrell Steward</h3>
-                                          <h6>Founder of (Rirax)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Collax was very diligent, polite and extremely customer oriented. I think Monika will
-                                       go
-                                       far with that attitude and ...he is such a honest, decent and reliable.</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className="tp-testi-img mr-20"><img src="assets/img/testimonial/testi-2.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Floyd Miles</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Collax was very diligent, polite and extremely customer oriented. I think Monika will
-                                       go
-                                       far with that attitude and ...he is such a honest, decent and reliable.</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className=" tp-testi-img mr-20"><img src="assets/img/testimonial/testi-3.png" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Albert Flores</h3>
-                                          <h6>Founder of (Rirax)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Collax was very diligent, polite and extremely customer oriented. I think Monika will
-                                       go
-                                       far with that attitude and ...he is such a honest, decent and reliable.</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="tp-testimonial-slider-section-2 d-flex justify-content-center">
-                     <div className="swiper-container testimonial-slider-active-2">
-                        <div className="swiper-wrapper">
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className="tp-testi-img mr-20"><img src="assets/img/testimonial/testi-4.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Dianne Russell</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Absolutely amazing. we can't believe how incredible this turned out. Yetta Thomas is a
-                                       true professional. he is such a honest, decent and reliable. He always provide good
-                                       service</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className="tp-testi-img mr-20"><img src="assets/img/testimonial/testi-5.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Jerome Bell</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Collax is a very talented designer and his most valuable role is to teach design in a
-                                       professional way. He trained design courses under my company Chartered Professional</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className=" tp-testi-img mr-20"><img src="assets/img/testimonial/testi-6.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Floyd Miles</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Absolutely amazing. we can't believe how incredible this turned out. Yetta Thomas is a
-                                       true professional. he is such a honest, decent and reliable. He always provide good
-                                       service</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className=" tp-testi-img mr-20"><img src="assets/img/testimonial/testi-4.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Robert Fox</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Absolutely amazing. we can't believe how incredible this turned out. Yetta Thomas is a
-                                       true professional. he is such a honest, decent and reliable. He always provide good
-                                       service</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="swiper-slide">
-                              <div className="tp-testimonial-item">
-                                 <div className="tp-testi-meta d-flex justify-content-between mb-40">
-                                    <div className="tp-testi-icon-box d-flex align-items-center">
-                                       <div className=" tp-testi-img mr-20"><img src="assets/img/testimonial/testi-5.jpg" alt="" />
-                                       </div>
-                                       <div className="tp-testi-client-position">
-                                          <h3>Floyd Miles</h3>
-                                          <h6>CEO of (Orix)</h6>
-                                       </div>
-                                    </div>
-                                    <div className="tp-testi-ratting">
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                       <i className="fas fa-star"></i>
-                                    </div>
-                                 </div>
-                                 <div className="tp-testi-p-text">
-                                    <p>Absolutely amazing. we can't believe how incredible this turned out. Yetta Thomas is a
-                                       true professional. he is such a honest, decent and reliable. He always provide good
-                                       service</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div> */}
-
-
-            <div className="sd-accordio-area pt-130 pb-130">
-               <div className="container">
-                  <div className="row">
-                     <h2 className="tp-title text-center">Frequently Asked Question </h2>
-                     <div className='row'>
-                        <div className="col-xl-6">
-                           <div className="tp-custom-accordio faq-accordio-border">
-                              <div className="accordion" id="accordionExample">
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingOne">
-                                       <button className="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                          Who can join our training programs?
-                                       </button>
-                                    </h2>
-                                    <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Our courses are designed for school students, college learners, and professionals.
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingThree">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                          Do you manage Atal Tinkering Labs (ATL)?
-                                       </button>
-                                    </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Yes, we set up, manage, and conduct hands-on training for ATL to foster innovation and STEM learning.
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingfive">
-                                       <button className="accordion-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
-                                          Can businesses collaborate with you for product development?
-                                       </button>
-                                    </h2>
-                                    <div id="collapsefive" className="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Absolutely! We develop custom IoT and AI solutions for startups and enterprises.
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingfour">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                          Do you provide online training?
-                                       </button>
-                                    </h2>
-                                    <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Yes, we offer both online and offline training sessions.
-
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-xl-6">
-                           <div className="tp-custom-accordio faq-accordio-border">
-                              <div className="accordion" id="accordionExample">
-                              <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingTwo">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                          Do you collaborate with schools for long-term programs?
-                                       </button>
-                                    </h2>
-                                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Yes, we provide year-long curriculum programs tailored for schools to integrate technology education effectively.
-                                       </div>
-                                    </div>
-                                 </div>
-                                 
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingsix">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                          Do you offer customized training programs for institutions?
-                                       </button>
-                                    </h2>
-                                    <div id="collapsesix" className="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          Yes, we design customized training modules for schools, colleges, and corporate teams.A dedicated product design team can help you achieve your business goals. Whether you need to craft an idea for a completely new product or elevate the quality of an existing solution, we’ll help you to create a product that is laser targeted to your users’ needs and delivers business results.
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingseven">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                                          What technologies do you specialize in ?
-                                       </button>
-                                    </h2>
-                                    <div id="collapseseven" className="accordion-collapse collapse" aria-labelledby="headingseven" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          We focus on Robotics, IoT, AI, Embedded Systems, and STEM education.
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div className="accordion-items">
-                                    <h2 className="accordion-header" id="headingeight">
-                                       <button className="accordion-buttons collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseight" aria-expanded="false" aria-controls="collapseight">
-                                          How can we partner with Atomic Tech Labs?
-                                       </button>
-                                    </h2>
-                                    <div id="collapseight" className="accordion-collapse collapse" aria-labelledby="headingeight" data-bs-parent="#accordionExample">
-                                       <div className="accordion-body">
-                                          You can collaborate for training programs, curriculum development, or product innovation. Contact us for more details.
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
-            {/* <div className="tp-news-letter-area pb-140 wow tpfadeUp" data-wow-duration=".7s" data-wow-delay=".4s">
-               <div className="container">
-                  <div className="tp-news-letter-box p-relative" data-background="assets/img/news/news-shape.png">
-                     <div className="row">
-                        <div className="col-xl-10 col-lg-6 col-md-8 col-12  ">
-                           <div className="tp-news-wrapper pl-90 z-index-1">
-                              <div className="tp-news-letter-section-box">
-                                 <h2 className="tp-title tp-white-text mb-2">Get latest updates and deals</h2>
-                                 <h5 className="subtitle-secondary-color text-start text-sm">Stay informed about cutting-edge IoT solutions, AI automation trends, and smart technology innovations. Subscribe now for exclusive insights, industry news, and special offers on IoT training & solutions!</h5>
-                              </div>
-                              <div className="tp-news-button p-relative w-50">
-                                 <form action="#">
-                                    <input type="text" placeholder="Enter your mail" />
-                                    <button className="tp-submit-button tp-btn-yellow-semilar" type="submit">Subscribe <i
-                                       className="far fa-arrow-right"></i></button>
-                                 </form>
-                              </div>
-                           </div>
-                        </div>
-
-                        <div className="col-xl-6 col-lg-6 text-lg-end col-md-4  ">
-                           <div className="tp-news-letter-img">
-                           </div>
-                        </div>
-                     </div>
-                     <div className="tp-news-shape-img">
-                     </div>
-                  </div>
-               </div>
-            </div> */}
-
-            <div className="tp-contact-area pt-15 pb-10" id='lettalk'>
-         <div className="container">
-            <div className="row">
-               <div className="col-xl-6 col-lg-6 ">
-                 <div className="tp-contct-wrapper contact-space-40">
-                  <div className="tp-contact-thumb mb-60">
-                     <img src="assets/img/contact/contact-1.jpg" alt=""/>
-                  </div>
-                  <div className="tp-contact-info mb-40">
-                     <h4 className="contact-title">Mail Address</h4>
-                     <span><a href="mailto:(atomictechlabs@gmail.com)">atomictechlabs@gmail.com</a></span>
-                     {/* <span><a href="mailto:(infoweb@gmail.com)">(infoweb@gmail.com)</a></span> */}
-                  </div>
-                  <div className="tp-contact-info mb-40">
-                     <h4 className="contact-title">Phone Number</h4>
-                     <span><a href="tel:(+91-9943690987)">+91-9943690987</a></span>
-                     {/* <span><a href="tel:(+1255-568-6523)">(+1255 - 568 - 6523)</a></span> */}
-                  </div>
-                  <div className="tp-contact-info">
-                     <h4 className="contact-title">Address line</h4>
-                     <span><a href="https://www.google.com/maps" target="blank">Nehru Nagar, SITRA, Coimbatore</a></span>
-                  </div>
-                 </div>
-               </div>
-               <div className="col-xl-6 col-lg-6">
-                  <div className="tpcontact">
-                     <h4 className="tp-contact-big-title">Let’s Talk...</h4>
-                     <div className="tpcontact__form tpcontact__form-3">
-                        <form ref={form} onSubmit={sendEmail}>
-                           <input 
-                           name="name" 
-                           type="text"
-                           value={formData.name}
-                           onChange={handleChange}
-                           required
-                            placeholder="Enter your Name"/>
-                           <input 
-                           name="email" 
-                           type="email" 
-                           value={formData.email}
-                           onChange={handleChange}
-                           required
-                           placeholder="Enter your Mail"/>
-                           <input 
-                           name="phone"
-                           value={formData.phone}
-                           onChange={handleChange}
-                            type="number"
-                            required
-                             placeholder="Enter your Phone Number"/>
-                           <textarea 
-                           name="message" 
-                           value={formData.message}
-                           onChange={handleChange}
-                           required
-                           placeholder="Enter your Message"></textarea>
-                        </form>
-                        <button type="button" onClick={sendEmail} className="tp-btn">Send Message</button>
-                     </div>
-                     <p className="ajax-response"></p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-
-         </main>
-
-         <footer className="p-relative">
-            
-            <div className="footer-clip-shape">
-               <svg width="1918" height="98" viewBox="0 0 1918 98" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="M435.5 54L0 1V0L1917.5 1L1309 75.5C1263 82 1178.75 88.6471 1176.5 89C1116 98.5 958.667 98.3333 885.5 97C874.167 96.5 856.5 95.5 850.5 95.5C793.5 95.5 554.667 69.3333 435.5 54Z"
-                     fill="white" />
-               </svg>
-            </div>
-            <div className="tp-clip-height-one"></div>
-            <div className="tp-clip-height-two"></div>
-            <div className="tp-footer-area tp-footer-space black-bg p-relative fix pt-0">
-               <div className="tp-footer-border-shape d-none"></div>
-               <div className="tp-footer-border-shape-two"></div>
-               <div className="circle-animation footer-animation d-none d-md-block">
-                  <span className="tp-circle-3"></span>
-               </div>
-               <div className="container">
-                  <div className="tp-footer-widget wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".5s">
-                     <div className="row align-items-center">
-                        <div className="col-xl-7 col-lg-7 col-md-7 col-12">
-                           <div className="tp-footer-top">
-                              <h5 className="tp-footer-title">More than 3 years in the game and we're <br /> just getting started.
-                                 🤝</h5>
-                           </div>
-                        </div>
-                        <div className="col-xl-5 col-lg-5 col-md-5 col-12">
-                           <div className="tp-footer-button text-start text-md-end">
-                              <a className="tp-btn" href="#lettalk">Available for new Project<i className="far fa-arrow-right"></i> </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="tp-footer-widget wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".5s">
-                     <div className="tp-copyright-text z-index-1">
-                        <p className="m-0">Contact Us : +91 9943690987 / 9443922588</p>
-                        <p className="m-0">Email: contact@atomictechlabs.in</p>
-                     </div>
-                  </div>
-               </div>
-               <div className="tp-copyright-area pb-90 wow tpfadeUp" data-wow-duration=".5s" data-wow-delay=".7s">
-                  <div className="container">
-                     <div className="tp-copyright-box align-items-center">
-                        <div className="row align-items-center">
-                           <div className="col-xl-5 col-lg-5 col-md-5 col-12">
-                              <div className="tp-copyright-text z-index-1">
-                                 <p className="m-0">© 2025 AtomicTechLabs, All Right Receved.</p>
-                              </div>
-                           </div>
-                           <div className="col-xl-7 col-lg-7 col-md-7 col-12">
-                              <div className="tp-copyright-right text-md-end text-start">
-                                 <a href="/">Support</a>
-                                 <a href="/">Privacy policy</a>
-                                 <a href="/">Terms and conditions</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="tp-copyright-logo-box">
-                        <div className="row align-items-center">
-                           <div className="col-xl-4 col-lg-4 col-md-4 col-12">
-                              <div className="tp-copyright-logo mt-35">
-                                 {/* <a href="index.html">
-
-                                 </a> */}
-                              </div>
-                           </div>
-                           <div className="col-xl-8 col-lg-8 col-md-8 col-12">
-                              <div className="tp-copyright-social text-md-end mt-25">
-                                 <a href="https://www.linkedin.com/company/atomic-tech-labs/"><i className="fab fa-linkedin-in"></i></a>
-                                 <a href="/"><i className="fab fa-facebook-f"></i></a>
-                                 <a href="/"><i className="fab fa-instagram"></i></a>
-                                 <a href="/"><i className="fab fa-youtube"></i></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </footer>
-
-         <button className="scroll-top scroll-to-target d-md-none" data-target="html">
-            <i className="far fa-angle-double-up"></i>
-         </button>
-      </div>
-   )
+/* ─── SEO helper – updates <title> per page ─── */
+function PageMeta({ title, desc }) {
+  useEffect(() => {
+    document.title = title
+    const m = document.querySelector('meta[name="description"]')
+    if (m) m.setAttribute('content', desc)
+  }, [title, desc])
+  return null
 }
 
-export default Home
+const stats = [
+  { value:500, suffix:'+', label:'Students trained' },
+  { value:40,  suffix:'+', label:'Partner schools' },
+  { value:12,  suffix:'',  label:'Years experience' },
+  { value:98,  suffix:'%', label:'Placement rate' },
+]
+
+const programs = [
+  { Icon:IconRobot,    title:'School Robotics',    age:'Age 10–18',   desc:'Hands-on robot building, coding and electronics for school students across Coimbatore and Tamil Nadu.', link:'/services/school'    },
+  { Icon:IconGraduate, title:'College Programs',   age:'UG / PG',     desc:'Industry-grade project labs in embedded systems and IoT for engineering colleges.',                       link:'/services/college'   },
+  { Icon:IconBuilding, title:'Corporate Training', age:'Teams',       desc:'Custom automation and IoT upskilling for engineering teams in Coimbatore and Bangalore.',                link:'/services/corporate' },
+  { Icon:IconWifi,     title:'IoT Solutions',      age:'All levels',  desc:'Full-stack IoT from sensor to cloud, deployed in real facilities across Tamil Nadu.',                    link:'/services/iot'       },
+  { Icon:IconChip,     title:'Embedded Systems',   age:'Intermediate',desc:'Firmware development, RTOS and hardware design courses — from Coimbatore labs.',                        link:'/services/embedded'  },
+  { Icon:IconBrain,    title:'AI at the Edge',     age:'Advanced',    desc:'Deploy ML models on microcontrollers and Raspberry Pi with our TinyML program.',                        link:'/services/ai'        },
+]
+
+const testimonials = [
+  { name:'Priya Sharma',          role:'B.Tech ECE, PSG College of Technology, Coimbatore', text:'The embedded systems course completely changed how I approach hardware. Placed in a firmware role before graduation.', init:'PS' },
+  { name:'Arjun Menon',           role:'Class 11, Coimbatore',                               text:'Built my first line-following robot in week 2. Best decision my parents made — world-class labs right here in Coimbatore.', init:'AM' },
+  { name:'Kavitha Rajan',         role:'IoT Lead, Bosch India',                              text:"Sent our whole team for the IoT workshop. The most practical training we've ever had. Highly recommended.", init:'KR' },
+]
+
+function StatCounter({ value, suffix, label }) {
+  const ref = useRef(null)
+  const [n, setN] = useState(0)
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        let s = 0
+        const step = () => { s += Math.ceil(value/55); if(s>=value){setN(value);return}; setN(s); requestAnimationFrame(step) }
+        requestAnimationFrame(step); obs.disconnect()
+      }
+    }, { threshold:0.5 })
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
+  }, [value])
+  return (
+    <div ref={ref} className="text-center">
+      <div className="font-display text-5xl font-bold" style={{color:'var(--accent)'}}>{n}{suffix}</div>
+      <div className="text-sm mt-2" style={{color:'var(--text-muted)'}}>{label}</div>
+      <div className="w-8 h-0.5 mx-auto mt-3 rounded" style={{background:'var(--accent)',opacity:0.4}}/>
+    </div>
+  )
+}
+
+function R({ children, delay=0 }) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current; if(!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if(e.isIntersecting){el.style.transitionDelay=`${delay}ms`;el.classList.add('visible');obs.disconnect()}
+    },{threshold:0.1})
+    obs.observe(el); return ()=>obs.disconnect()
+  },[delay])
+  return <div ref={ref} className="reveal">{children}</div>
+}
+
+export default function Home() {
+  const [scrollY, setScrollY] = useState(0)
+  useEffect(() => {
+    const fn = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', fn, { passive:true })
+    return () => window.removeEventListener('scroll', fn)
+  },[])
+
+  return (
+    <main>
+      <PageMeta
+        title="AtomicTechLabs — Robotics & IoT Training Institute in Coimbatore, Tamil Nadu"
+        desc="AtomicTechLabs offers hands-on Robotics, IoT, Embedded Systems and AI training for school students, engineering colleges and corporates in Coimbatore, Tamil Nadu."
+      />
+
+      {/* ── HERO ── */}
+      <section className="canvas-section min-h-screen flex items-center" style={{paddingTop:'var(--nav-h)'}}>
+        <AntigravityCanvas particleCount={130} repelRadius={130} lineRadius={110}/>
+        <div className="canvas-fill opacity-55"><HeroScene scrollY={scrollY}/></div>
+        <div className="canvas-content max-w-[1280px] mx-auto px-6 py-24 w-full">
+          <div className="max-w-[660px]">
+            <div className="flex items-center gap-2.5 mb-6 t-mono" style={{color:'#7bc44f'}}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{background:'#7bc44f',boxShadow:'0 0 8px rgba(123,196,79,0.8)'}}/>
+              Robotics &amp; IoT Training Institute — Coimbatore, Tamil Nadu
+            </div>
+            <h1 className="t-hero mb-6 text-white">
+              We build the<br/>
+              <span style={{color:'#7bc44f'}}>engineers</span><br/>
+              of tomorrow
+            </h1>
+            <p className="text-lg mb-10 max-w-[500px] leading-relaxed" style={{color:'rgba(255,255,255,0.72)'}}>
+              Hands-on Robotics, IoT, Embedded Systems and AI training for school students, colleges and corporates — right here in Coimbatore.
+            </p>
+            <div className="flex gap-4 flex-wrap mb-12">
+              <Link to="/services" className="btn btn-primary" data-hover>Explore programs</Link>
+              <Link to="/contact"  className="btn btn-outline" data-hover style={{color:'#7bc44f',borderColor:'#7bc44f'}}>Book a demo</Link>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Arduino','Raspberry Pi','ROS','ESP32','TensorFlow Lite','MQTT','STM32','FreeRTOS'].map(t=>(
+                <span key={t} className="tech-chip">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-float">
+          <div className="w-5 h-8 rounded-full border flex justify-center pt-1.5" style={{borderColor:'rgba(255,255,255,0.4)'}}>
+            <div className="w-0.5 h-1.5 rounded-full bg-white" style={{animation:'scrollBounce 2s ease infinite'}}/>
+          </div>
+          <span className="t-mono text-xs text-white/50">scroll</span>
+        </div>
+      </section>
+
+      {/* ── STATS ── */}
+      <section className="py-16 border-y" style={{background:'var(--card-bg)',borderColor:'var(--border)'}}>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+            {stats.map(s=><StatCounter key={s.label} {...s}/>)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROGRAMS ── */}
+      <section className="py-28" style={{background:'var(--surface-1)'}}>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <R>
+            <span className="section-label">What we teach</span>
+            <h2 className="t-h1 mb-3" style={{color:'var(--text)'}}>Programs for every level</h2>
+            <p className="t-body text-lg mb-14 max-w-[560px]">
+              From a curious 10-year-old in Coimbatore building their first robot to a corporate team deploying industrial IoT — we have a track for you.
+            </p>
+          </R>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {programs.map((p,i)=>(
+              <R key={p.title} delay={i*70}>
+                <Link to={p.link} className="atl-card flex flex-col group h-full" data-hover>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                    style={{background:'var(--accent-bg)',border:'1px solid var(--border-strong)'}}>
+                    <p.Icon size={26} color="var(--accent)"/>
+                  </div>
+                  <div className="t-mono mb-2" style={{color:'var(--amber)',fontSize:'0.65rem',textTransform:'uppercase',letterSpacing:'0.1em'}}>{p.age}</div>
+                  <h3 className="t-h3 mb-2" style={{color:'var(--text)'}}>{p.title}</h3>
+                  <p className="text-sm leading-relaxed flex-1 mb-4" style={{color:'var(--text-muted)'}}>{p.desc}</p>
+                  <div className="flex items-center gap-1.5 text-sm font-medium transition-all group-hover:gap-3" style={{color:'var(--accent)'}}>
+                    Learn more <IconArrow size={14} color="var(--accent)"/>
+                  </div>
+                </Link>
+              </R>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONVEYOR ── */}
+      <section className="canvas-section py-28 min-h-[560px] flex items-center">
+        <div className="canvas-fill opacity-55"><ConveyorScene/></div>
+        <div className="canvas-content max-w-[1280px] mx-auto px-6 w-full">
+          <R>
+            <span className="section-label" style={{color:'var(--amber)'}}>How it works</span>
+            <h2 className="t-h1 mb-4 text-white">Learning by building</h2>
+            <p className="text-lg mb-10 max-w-[480px] leading-relaxed" style={{color:'rgba(255,255,255,0.72)'}}>
+              Every program at our Coimbatore labs follows a hands-on assembly model. Students wire, code, solder and debug real hardware from day one.
+            </p>
+          </R>
+          <div className="flex flex-col gap-4 max-w-[460px]">
+            {[
+              {n:'01',title:'Components',desc:'Understand sensors, actuators and microcontrollers'},
+              {n:'02',title:'Assembly',  desc:'Wire circuits and build mechanical structures'},
+              {n:'03',title:'Code',      desc:'Program in C, Python or block-based environments'},
+              {n:'04',title:'Deploy',    desc:'Test in real-world scenarios and iterate'},
+            ].map((s,i)=>(
+              <R key={s.n} delay={i*90}>
+                <div className="flex items-start gap-5 rounded-xl p-5 transition-colors"
+                  style={{background:'rgba(13,30,13,0.7)',backdropFilter:'blur(10px)',border:'1px solid rgba(255,255,255,0.1)'}}>
+                  <span className="t-mono pt-0.5 shrink-0 font-bold" style={{color:'#7bc44f'}}>{s.n}</span>
+                  <div>
+                    <div className="font-display font-semibold mb-1 text-white">{s.title}</div>
+                    <div className="text-sm leading-relaxed" style={{color:'rgba(255,255,255,0.65)'}}>{s.desc}</div>
+                  </div>
+                </div>
+              </R>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── GLOBE / REACH ── */}
+      <section className="canvas-section py-28 min-h-[520px] flex items-center">
+        <div className="canvas-fill"><GlobeScene/></div>
+        <div className="canvas-content max-w-[1280px] mx-auto px-6 w-full">
+          <R>
+            <span className="section-label" style={{color:'#7bc44f'}}>Our reach</span>
+            <h2 className="t-h1 mb-4 text-white">Training centres in<br/><span style={{color:'#7bc44f'}}>two cities</span></h2>
+            <p className="text-lg mb-6 max-w-[440px] leading-relaxed" style={{color:'rgba(255,255,255,0.72)'}}>
+              Based in Coimbatore and Bangalore, we've partnered with 40+ schools, 12 engineering colleges, and 8 corporations across Tamil Nadu.
+            </p>
+            <div className="flex flex-wrap gap-2.5 mb-8">
+              {['Coimbatore','Bangalore','Chennai','Hyderabad (online)'].map(c=>(
+                <span key={c} className="tech-chip">{c}</span>
+              ))}
+            </div>
+            <Link to="/about" className="btn btn-outline inline-flex" style={{color:'#7bc44f',borderColor:'#7bc44f'}} data-hover>About us →</Link>
+          </R>
+        </div>
+      </section>
+
+      {/* ── GALLERY TEASER ── */}
+      <section className="py-24 border-t text-center" style={{background:'var(--surface-2)',borderColor:'var(--border)'}}>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <R>
+            <span className="section-label inline-block">Real projects from our Coimbatore labs</span>
+            <h2 className="t-h1 mb-4" style={{color:'var(--text)'}}>See what our <span style={{color:'var(--accent)'}}>students build</span></h2>
+            <p className="t-body text-lg mb-10 max-w-[460px] mx-auto">
+              Robots, IoT dashboards, custom PCBs, smart school systems — browse the gallery of work from our labs.
+            </p>
+            <Link to="/gallery" className="btn btn-primary" data-hover>View gallery →</Link>
+          </R>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-28" style={{background:'var(--card-bg)'}}>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <R>
+            <span className="section-label" style={{color:'var(--amber)'}}>What people say</span>
+            <h2 className="t-h1 mb-12" style={{color:'var(--text)'}}>Results that speak</h2>
+          </R>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t,i)=>(
+              <R key={t.name} delay={i*100}>
+                <div className="atl-card flex flex-col h-full">
+                  <div className="flex gap-0.5 mb-4">
+                    {[1,2,3,4,5].map(s=>(
+                      <IconStar key={s} size={14} color="var(--amber)"/>
+                    ))}
+                  </div>
+                  <p className="flex-1 mb-6 leading-relaxed text-sm" style={{color:'var(--text)'}}>{t.text}</p>
+                  <div className="flex items-center gap-3 pt-4 border-t" style={{borderColor:'var(--border)'}}>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold font-mono text-white shrink-0"
+                      style={{background:'linear-gradient(135deg,var(--accent),var(--amber))'}}>{t.init}</div>
+                    <div>
+                      <div className="font-semibold text-sm" style={{color:'var(--text)'}}>{t.name}</div>
+                      <div className="text-xs" style={{color:'var(--text-muted)'}}>{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </R>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-28 relative overflow-hidden border-t" style={{background:'var(--surface-1)',borderColor:'var(--border)'}}>
+        <div className="absolute inset-0 pointer-events-none opacity-25">
+          <svg width="100%" height="100%" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+            <path d="M0 200 H200 L240 160 H400 L440 200 H600 L640 240 H800 L840 200 H1000 L1040 160 H1200"
+              stroke="var(--accent)" strokeWidth="1" fill="none"/>
+            {[200,400,600,800,1000].map(x=>(
+              <circle key={x} cx={x} cy={200} r="4" fill="var(--accent)" opacity="0.5"/>
+            ))}
+          </svg>
+        </div>
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 text-center">
+          <R>
+            <h2 className="t-h1 mb-4" style={{color:'var(--text)'}}>Ready to build the <span style={{color:'var(--accent)'}}>future?</span></h2>
+            <p className="t-body text-lg max-w-[460px] mx-auto mb-10">
+              Join 500+ students and professionals who've levelled up with AtomicTechLabs in Coimbatore.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/contact" className="btn btn-primary" data-hover>Start your journey</Link>
+              <Link to="/blog"    className="btn btn-outline" data-hover>Read our blog</Link>
+            </div>
+          </R>
+        </div>
+      </section>
+    </main>
+  )
+}
